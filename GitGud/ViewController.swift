@@ -8,13 +8,31 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, RepoDataProtocol {
+    
+    @IBOutlet weak var testButton: UIButton!
+    
+    var dataSession = RepoData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.dataSession.delegate = self
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func testRepo(_ sender: Any) {
+        self.dataSession.getRepoData()
+    }
+    
+    
+    // MARK: Reponse Handlers
+    func responseDataHandler(data: NSDictionary) {
+    }
+    
+    func responseError(message: String) {
+        DispatchQueue.main.async() {
+        }
+    }
+    
 }
 

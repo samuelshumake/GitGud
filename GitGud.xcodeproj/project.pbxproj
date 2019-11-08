@@ -14,6 +14,7 @@
 		12BEF52A237620F100C30D53 /* GitGud.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12BEF528237620F100C30D53 /* GitGud.xcdatamodeld */; };
 		12BEF52C237620F200C30D53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12BEF52B237620F200C30D53 /* Assets.xcassets */; };
 		12BEF52F237620F200C30D53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12BEF52D237620F200C30D53 /* LaunchScreen.storyboard */; };
+		12BEF5372376217600C30D53 /* RepoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BEF5362376217600C30D53 /* RepoData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		12BEF52B237620F200C30D53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12BEF52E237620F200C30D53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12BEF530237620F200C30D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12BEF5362376217600C30D53 /* RepoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				12BEF51F237620F100C30D53 /* AppDelegate.swift */,
 				12BEF521237620F100C30D53 /* SceneDelegate.swift */,
 				12BEF523237620F100C30D53 /* ViewController.swift */,
+				12BEF5362376217600C30D53 /* RepoData.swift */,
 				12BEF525237620F100C30D53 /* Main.storyboard */,
 				12BEF52B237620F200C30D53 /* Assets.xcassets */,
 				12BEF52D237620F200C30D53 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				12BEF524237620F100C30D53 /* ViewController.swift in Sources */,
+				12BEF5372376217600C30D53 /* RepoData.swift in Sources */,
 				12BEF520237620F100C30D53 /* AppDelegate.swift in Sources */,
 				12BEF522237620F100C30D53 /* SceneDelegate.swift in Sources */,
 				12BEF52A237620F100C30D53 /* GitGud.xcdatamodeld in Sources */,
