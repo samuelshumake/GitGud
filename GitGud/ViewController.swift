@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, RepoDataProtocol {
+class ViewController: UIViewController, BranchDataProtocol {
     
     @IBOutlet weak var testButton: UIButton!
     
-    var dataSession = RepoData()
+    var dataSession = BranchData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class ViewController: UIViewController, RepoDataProtocol {
     }
 
     @IBAction func testRepo(_ sender: Any) {
-        self.dataSession.getRepoData()
+        self.dataSession.getBranchData()
     }
     
     
