@@ -15,7 +15,7 @@ protocol RepoDataProtocol {
 
 class RepoData{
     private let urlSession = URLSession.shared
-    private let urlPathBase = "https://api.github.com/repos/samuelshumake/GitGud/git/trees/"
+    private let urlPathBase = "https://api.github.com/repos/samuelshumake/GitGud/branches/dev"
     private var dataTask: URLSessionDataTask? = nil
     var delegate: RepoDataProtocol? = nil
 
@@ -31,7 +31,8 @@ class RepoData{
             } else {
                 do {
                     let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
-                    print(jsonResult)
+                    let repoDict = jsonResult!["commit"]! as? NSDictionary
+                    print(repoDict!["commit"])
                 } catch {
                     //Catch and handle the exception
                 }
