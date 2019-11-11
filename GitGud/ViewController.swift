@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController, BranchDataProtocol {
     
     @IBOutlet weak var testButton: UIButton!
+    @IBOutlet weak var usernameEntry: UITextField!
+    @IBOutlet weak var repoEntry: UITextField!
+    @IBOutlet weak var branchEntry: UITextField!
     
     var dataSession = BranchData()
     
@@ -20,13 +23,16 @@ class ViewController: UIViewController, BranchDataProtocol {
         // Do any additional setup after loading the view.
     }
 
+    // private let urlPathBase = "https://api.github.com/repos/samuelshumake/GitGud/commits?sha=dev"
     @IBAction func testRepo(_ sender: Any) {
-        self.dataSession.getBranchData()
+        let entry: String = usernameEntry.text! + "/" + repoEntry.text! + "/commits?sha=" + branchEntry.text!
+        self.dataSession.getBranchData(userInfo: entry)
     }
     
     
     // MARK: Reponse Handlers
-    func responseDataHandler(data: NSDictionary) {
+    func responseDataHandler(data: Array<Commit>) {
+        print(data)
     }
     
     func responseError(message: String) {

@@ -15,11 +15,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWg-uK-r9L">
-                                <rect key="frame" x="118" y="267" width="178" height="157"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gs0-28-l9c">
+                                <rect key="frame" x="20" y="121" width="79" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkx-Iq-7Ac">
+                                <rect key="frame" x="20" y="169" width="40" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Branch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLE-eO-gBh">
+                                <rect key="frame" x="20" y="217" width="55" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kgL-ao-5W0">
+                                <rect key="frame" x="119" y="114" width="275" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pub-Zq-ieb">
+                                <rect key="frame" x="119" y="162" width="275" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uRo-pF-RPc">
+                                <rect key="frame" x="119" y="210" width="275" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GitGud" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mje-V0-jrL">
+                                <rect key="frame" x="20" y="55" width="374" height="41"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWg-uK-r9L">
+                                <rect key="frame" x="20" y="266" width="374" height="36"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <state key="normal" title="Test"/>
                                 <connections>
                                     <action selector="testRepo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3RB-5A-agj"/>
@@ -27,10 +65,36 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="uRo-pF-RPc" firstAttribute="leading" secondItem="hLE-eO-gBh" secondAttribute="trailing" constant="44" id="0fc-xP-0qv"/>
+                            <constraint firstItem="Pub-Zq-ieb" firstAttribute="top" secondItem="kgL-ao-5W0" secondAttribute="bottom" constant="14" id="28x-f5-xDO"/>
+                            <constraint firstItem="Pub-Zq-ieb" firstAttribute="leading" secondItem="Nkx-Iq-7Ac" secondAttribute="trailing" constant="59" id="99u-7n-XC1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kgL-ao-5W0" secondAttribute="trailing" constant="20" id="FKh-Gk-axR"/>
+                            <constraint firstItem="Nkx-Iq-7Ac" firstAttribute="top" secondItem="gs0-28-l9c" secondAttribute="bottom" constant="27" id="HVT-M6-IQn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pub-Zq-ieb" secondAttribute="trailing" constant="20" id="MqX-7B-Xk6"/>
+                            <constraint firstItem="hLE-eO-gBh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Pq1-1R-fc6"/>
+                            <constraint firstItem="mje-V0-jrL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11" id="Ptz-eG-nFy"/>
+                            <constraint firstItem="gs0-28-l9c" firstAttribute="top" secondItem="mje-V0-jrL" secondAttribute="bottom" constant="25" id="QMZ-q0-Imk"/>
+                            <constraint firstItem="kgL-ao-5W0" firstAttribute="leading" secondItem="gs0-28-l9c" secondAttribute="trailing" constant="20" id="VDU-f6-HKf"/>
+                            <constraint firstItem="Nkx-Iq-7Ac" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="WYa-wF-RM2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uRo-pF-RPc" secondAttribute="trailing" constant="20" id="YCD-zC-3oR"/>
+                            <constraint firstItem="gs0-28-l9c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Ymf-xy-q6g"/>
+                            <constraint firstItem="IWg-uK-r9L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="el0-ag-eMp"/>
+                            <constraint firstItem="hLE-eO-gBh" firstAttribute="top" secondItem="Nkx-Iq-7Ac" secondAttribute="bottom" constant="27" id="jGe-IE-bi1"/>
+                            <constraint firstItem="mje-V0-jrL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mqN-9t-9W2"/>
+                            <constraint firstItem="uRo-pF-RPc" firstAttribute="top" secondItem="Pub-Zq-ieb" secondAttribute="bottom" constant="14" id="odf-8o-evQ"/>
+                            <constraint firstItem="kgL-ao-5W0" firstAttribute="top" secondItem="mje-V0-jrL" secondAttribute="bottom" constant="18" id="tyT-9a-etq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IWg-uK-r9L" secondAttribute="trailing" constant="20" id="v0l-se-ldv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mje-V0-jrL" secondAttribute="trailing" constant="20" id="wvl-gd-pou"/>
+                            <constraint firstItem="IWg-uK-r9L" firstAttribute="top" secondItem="uRo-pF-RPc" secondAttribute="bottom" constant="22" id="x0O-Ky-7rL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="branchEntry" destination="uRo-pF-RPc" id="isy-li-GbL"/>
+                        <outlet property="repoEntry" destination="Pub-Zq-ieb" id="XeE-0G-P8Z"/>
                         <outlet property="testButton" destination="IWg-uK-r9L" id="VuY-oU-d8y"/>
+                        <outlet property="usernameEntry" destination="kgL-ao-5W0" id="o2o-V1-8ea"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

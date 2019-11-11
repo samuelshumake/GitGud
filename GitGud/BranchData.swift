@@ -9,7 +9,7 @@
 import UIKit
 
 protocol BranchDataProtocol {
-    func responseDataHandler(data: NSDictionary)
+    func responseDataHandler(data: Array<Commit>)
     func responseError(message: String)
 }
 
@@ -19,12 +19,11 @@ struct Commit {
     var author: String
     var email: String
     var sha: String
-    
 }
 
 class BranchData {
     private let urlSession = URLSession.shared
-    private let urlPathBase = "https://api.github.com/repos/samuelshumake/GitGud/commits?sha=dev"
+    private let urlPathBase = "https://api.github.com/repos/"
     private var dataTask: URLSessionDataTask? = nil
     var delegate: BranchDataProtocol? = nil
 
@@ -32,8 +31,9 @@ class BranchData {
     
     var BranchCommits: Array<Commit> = []
     
-    func getBranchData() {
-        let urlPath = self.urlPathBase
+    func getBranchData(userInfo: String) {
+        var urlPath = self.urlPathBase
+        urlPath = urlPath + userInfo
         let url:NSURL? = NSURL(string: urlPath)
         
         
@@ -42,7 +42,6 @@ class BranchData {
                 print(error!)
             } else {
                 do {
-                    let data = NSData(contentsOf: URL(string: self.urlPathBase)!)
                     if data != nil {
                         let jsonResult = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.mutableContainers)
                         let branch = jsonResult as? [Dictionary<String, Any>]
@@ -59,6 +58,7 @@ class BranchData {
                             self.BranchCommits.append(commitStruct)
                         }
                     }
+                    self.delegate?.responseDataHandler(data: self.BranchCommits)
                     
                 } catch {
                     //Catch and handle the exception
