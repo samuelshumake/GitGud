@@ -20,13 +20,14 @@ class ViewController: UIViewController, BranchDataProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSession.delegate = self
-        // Do any additional setup after loading the view.
     }
 
     // private let urlPathBase = "https://api.github.com/repos/samuelshumake/GitGud/commits?sha=dev"
     @IBAction func testRepo(_ sender: Any) {
         let entry: String = usernameEntry.text! + "/" + repoEntry.text! + "/commits?sha=" + branchEntry.text!
         self.dataSession.getBranchData(userInfo: entry)
+        
+        // TODO: When user types in their username, the app will automatically pull up a dropdown list of their accessible repositories and branches
     }
     
     
