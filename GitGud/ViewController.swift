@@ -33,9 +33,11 @@ class ViewController: UIViewController, RepoDataProtocol {
         self.dataSession.getRepos(username: "lol")
     }
     
-    
+    func repoResponse(data: Array<String>) {
+        print(data)
+    }
     // MARK: Reponse Handlers
-    func responseDataHandler(data: Array<Commit>) {
+    func commitResponse(data: Array<Commit>) {
         print(data)
     }
     

@@ -9,7 +9,8 @@
 import UIKit
 
 protocol RepoDataProtocol {
-    func responseDataHandler(data: Array<Commit>)
+    func repoResponse(data: Array<String>)
+    func commitResponse(data: Array<Commit>)
     func responseError(message: String)
 }
 
@@ -29,8 +30,9 @@ class RepoData {
 
     init() {}
     
-    var RepoCommits: Array<Commit> = []
     
+    var RepoCommits: Array<Commit> = []
+    var Repos: Array<String> = []
     
     func getRepos(username: String) {
 //        let username = username.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -47,16 +49,15 @@ class RepoData {
                     if data != nil {
                         let jsonResult = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.mutableContainers)
                         let user = jsonResult as? [Dictionary<String, Any>]
-                        // now get "name" from each
-    
                         for i in user! {
-                            print(i)
-                            print("\n\n\n\n")
-                            let branches = i["name"]!
-                            
-                            
+                            let repo = i["name"]! as? String
+                            self.Repos.append(repo!)
+//                            let branch = "repos/samuelshumake/" + repo! + "/branches"
+//                            let created = i["created_at"]! as? String
+//                            let updated = i["pushed_at"]! as? String
                         }
                     }
+                    self.delegate?.repoResponse(data: self.Repos)
                 } catch {
                     
                 }
@@ -93,7 +94,7 @@ class RepoData {
                             self.RepoCommits.append(commitStruct)
                         }
                     }
-                    self.delegate?.responseDataHandler(data: self.RepoCommits)
+                    self.delegate?.commitResponse(data: self.RepoCommits)
                     
                 } catch {
                     //Catch and handle the exception
