@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, BranchDataProtocol {
+class ViewController: UIViewController, RepoDataProtocol {
     
     @IBOutlet weak var testButton: UIButton!
     @IBOutlet weak var usernameEntry: UITextField!
     @IBOutlet weak var repoEntry: UITextField!
     @IBOutlet weak var branchEntry: UITextField!
-    
-    var dataSession = BranchData()
+    @IBOutlet weak var test2Button: UIButton!
+    var dataSession = RepoData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +25,12 @@ class ViewController: UIViewController, BranchDataProtocol {
     // private let urlPathBase = "https://api.github.com/repos/samuelshumake/GitGud/commits?sha=dev"
     @IBAction func testRepo(_ sender: Any) {
         let entry: String = usernameEntry.text! + "/" + repoEntry.text! + "/commits?sha=" + branchEntry.text!
-        self.dataSession.getBranchData(userInfo: entry)
+        self.dataSession.getRepoData(userInfo: entry)
         
         // TODO: When user types in their username, the app will automatically pull up a dropdown list of their accessible repositories and branches
+    }
+    @IBAction func test2User(_ sender: Any) {
+        self.dataSession.getRepos(username: "lol")
     }
     
     

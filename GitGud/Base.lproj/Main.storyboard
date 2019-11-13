@@ -64,6 +64,15 @@
                                     <segue destination="WIw-5J-h1N" kind="show" id="pUy-bP-apa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXT-Si-jQe">
+                                <rect key="frame" x="20" y="388" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Test2"/>
+                                <connections>
+                                    <action selector="test2User:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ew-1U-XoN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -95,8 +104,9 @@
                     <connections>
                         <outlet property="branchEntry" destination="uRo-pF-RPc" id="isy-li-GbL"/>
                         <outlet property="repoEntry" destination="Pub-Zq-ieb" id="XeE-0G-P8Z"/>
+                        <outlet property="test2Button" destination="RXT-Si-jQe" id="lNb-Oy-wkL"/>
                         <outlet property="testButton" destination="IWg-uK-r9L" id="VuY-oU-d8y"/>
-                        <outlet property="usernameEntry" destination="kgL-ao-5W0" id="o2o-V1-8ea"/>
+                        <outlet property="usernameEntry" destination="RXT-Si-jQe" id="ed9-M0-VnY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
