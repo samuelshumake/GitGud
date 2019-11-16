@@ -9,7 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, RepoDataProtocol {
-    
+
+    @IBOutlet weak var repoList: UIPickerView!
     @IBOutlet weak var testButton: UIButton!
     @IBOutlet weak var usernameEntry: UITextField!
     @IBOutlet weak var repoEntry: UITextField!
@@ -20,6 +21,12 @@ class ViewController: UIViewController, RepoDataProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSession.delegate = self
+    }
+
+    @IBAction func textFieldDidEndEditing(_ sender: UITextField) {
+        let userEntry: String = usernameEntry.text!
+        self.dataSession.getRepos(username: userEntry)
+        usernameEntry.resignFirstResponder()
     }
 
     // private let urlPathBase = "https://api.github.com/repos/samuelshumake/GitGud/commits?sha=dev"
