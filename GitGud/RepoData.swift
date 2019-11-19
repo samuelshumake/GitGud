@@ -36,8 +36,8 @@ class RepoData {
     
     func getRepos(username: String) {
         let username = username.trimmingCharacters(in: .whitespacesAndNewlines)
-        let urlPath = self.urlPathBase + "users/" + username + "/repos"
-//        urlPath = urlPath + "users/samuelshumake/repos"               //TESTING
+        var urlPath = self.urlPathBase + "users/" + username + "/repos"
+        urlPath = self.urlPathBase + "users/samuelshumake/repos"         //TESTING
         let url: NSURL? = NSURL(string: urlPath)
         
         let userTask = self.urlSession.dataTask(with: url! as URL) { (data, response, error) -> Void in

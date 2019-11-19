@@ -76,21 +76,22 @@
                                     <action selector="test2User:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ew-1U-XoN"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="2" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SYe-ta-LY3" customClass="UIRepoPickerTableViewController">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="2" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SYe-ta-LY3" customClass="RepoPicker" customModule="GitGud" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="444" width="414" height="418"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="87" id="bSW-Ek-H2j">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="87" id="bSW-Ek-H2j" customClass="RepoPickerViewCell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bSW-Ek-H2j" id="9f9-M9-4JF" customClass="RepoPickerViewCell">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bSW-Ek-H2j" id="9f9-M9-4JF">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GitGud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0V-6O-UPp">
                                                     <rect key="frame" x="20" y="11" width="164" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="repoCell"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -132,10 +133,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="createdDate" destination="G7U-1i-ecb" id="EbY-K9-w99"/>
-                                            <outlet property="repoButton" destination="5or-Yx-9F1" id="YiU-gv-42Z"/>
-                                            <outlet property="repoName" destination="d0V-6O-UPp" id="g53-tl-S4L"/>
-                                            <outlet property="updatedDate" destination="N8E-9b-szJ" id="OpU-fP-Uxw"/>
+                                            <outlet property="createdDate" destination="G7U-1i-ecb" id="ixI-cB-J5y"/>
+                                            <outlet property="repoButton" destination="5or-Yx-9F1" id="tGu-bm-sUX"/>
+                                            <outlet property="updatedDate" destination="N8E-9b-szJ" id="xHh-IQ-MgJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -171,6 +171,7 @@
                     <connections>
                         <outlet property="branchEntry" destination="uRo-pF-RPc" id="isy-li-GbL"/>
                         <outlet property="repoEntry" destination="Pub-Zq-ieb" id="XeE-0G-P8Z"/>
+                        <outlet property="repoTableView" destination="SYe-ta-LY3" id="hiT-1K-EjI"/>
                         <outlet property="test2Button" destination="RXT-Si-jQe" id="lNb-Oy-wkL"/>
                         <outlet property="testButton" destination="IWg-uK-r9L" id="VuY-oU-d8y"/>
                         <outlet property="usernameEntry" destination="kgL-ao-5W0" id="AZR-Fc-gax"/>

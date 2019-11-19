@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		12367541237FBEAF00D2EB1F /* RepoPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12367540237FBEAF00D2EB1F /* RepoPickerTableViewController.swift */; };
+		1279B7482382570E008A2EAD /* RepoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1279B7472382570E008A2EAD /* RepoPicker.swift */; };
 		12BEF520237620F100C30D53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BEF51F237620F100C30D53 /* AppDelegate.swift */; };
 		12BEF522237620F100C30D53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BEF521237620F100C30D53 /* SceneDelegate.swift */; };
 		12BEF524237620F100C30D53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BEF523237620F100C30D53 /* ViewController.swift */; };
@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		12367540237FBEAF00D2EB1F /* RepoPickerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoPickerTableViewController.swift; sourceTree = "<group>"; };
+		1279B7472382570E008A2EAD /* RepoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoPicker.swift; sourceTree = "<group>"; };
 		12BEF51C237620F100C30D53 /* GitGud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitGud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12BEF51F237620F100C30D53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12BEF521237620F100C30D53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,9 +67,9 @@
 				12BEF51F237620F100C30D53 /* AppDelegate.swift */,
 				12BEF521237620F100C30D53 /* SceneDelegate.swift */,
 				12BEF523237620F100C30D53 /* ViewController.swift */,
-				12367540237FBEAF00D2EB1F /* RepoPickerTableViewController.swift */,
 				12BEF5362376217600C30D53 /* RepoData.swift */,
 				12BEF525237620F100C30D53 /* Main.storyboard */,
+				1279B7472382570E008A2EAD /* RepoPicker.swift */,
 				12C289F5237A68ED00796A40 /* GitVisualizerView.swift */,
 				12BEF52B237620F200C30D53 /* Assets.xcassets */,
 				12BEF52D237620F200C30D53 /* LaunchScreen.storyboard */,
@@ -155,8 +155,8 @@
 				12BEF520237620F100C30D53 /* AppDelegate.swift in Sources */,
 				12C289F6237A68ED00796A40 /* GitVisualizerView.swift in Sources */,
 				12BEF522237620F100C30D53 /* SceneDelegate.swift in Sources */,
-				12367541237FBEAF00D2EB1F /* RepoPickerTableViewController.swift in Sources */,
 				12BEF52A237620F100C30D53 /* GitGud.xcdatamodeld in Sources */,
+				1279B7482382570E008A2EAD /* RepoPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
