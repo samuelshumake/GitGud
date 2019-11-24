@@ -76,7 +76,29 @@ class RepoData {
                     if data != nil {
                         let jsonResult = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.mutableContainers)
                         let commit = jsonResult as? NSDictionary
+                        let commitInfo = commit!["commit"]! as? NSDictionary
+                        
+                        // Gets info of commit author
+                        let author = commitInfo!["author"]! as? NSDictionary
+                        let name = author!["name"]!
+                        let email = author!["email"]!
+                        let date = author!["date"]!
+                        
+                        // Gets commit message
+                        let message = commitInfo!["message"]!
+                        
+                        // Gets parent commits
+                        let parent = commit!["parents"]! as? NSArray
+                        print(parent![0])
+                        // TODO: Allow for multiple parents
                         // TODO: Get relevant info from commits and push to RepoCommits linked list as Commit structs
+                        
+                        //"commit" : committer : name, email,date
+                        //"commit" : message
+                        
+                        //"parents" : sha, api url, html url
+                        
+                        //"stats" : total, additions, deletions
                     }
                 } catch {
                     
