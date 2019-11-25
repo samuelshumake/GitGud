@@ -27,8 +27,11 @@ class ViewController: UIViewController, RepoDataProtocol {
     }
     
     // MARK: Reponse Handlers
-    func repoResponse(data: Array<Commit>) {
-        print(data)
+    func repoResponse(data: Dictionary<String, Array<Commit>>) {
+        for i in data {
+            print(i)
+            print("\n\n")
+        }
     }
     
     func responseError(message: String) {

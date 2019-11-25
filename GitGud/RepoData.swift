@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RepoDataProtocol {
-    func repoResponse(data: Array<Commit>)
+    func repoResponse(data: Dictionary<String, Array<Commit>>)
     func responseError(message: String)
 }
 
@@ -21,9 +21,6 @@ struct Commit {
     var email: String
     var sha: String
     var pSha: String
-    var statsTotal: Int
-    var statsAdd: Int
-    var statsDel: Int
 }
 
 class RepoData {
@@ -31,16 +28,16 @@ class RepoData {
     private let urlPathBase = "https://api.github.com/repos/"
     private var dataTask: URLSessionDataTask? = nil
     var delegate: RepoDataProtocol? = nil
+    var RepoCommits: [String: [Commit]] = [:]
 
     init() {}
     
-    var RepoCommits: Array<Commit> = []
+    
     
     func getRepoData(userInfo: String) {
-//        let userInfo = userInfo.trimmingCharacters(in: .whitespacesAndNewlines)
-//        var urlPath = self.urlPathBase
-//        urlPath = urlPath + userInfo + "/branches"
-        let urlPath = "https://api.github.com/repos/samuelshumake/GitGud/branches"
+        let userInfo = userInfo.trimmingCharacters(in: .whitespacesAndNewlines)
+        var urlPath = self.urlPathBase
+        urlPath = urlPath + userInfo + "/branches"
         let url:NSURL? = NSURL(string: urlPath)
         let repoTask = self.urlSession.dataTask(with: url! as URL) { (data, response, error) -> Void in
             if error != nil {
@@ -50,15 +47,17 @@ class RepoData {
                     if data != nil {
                         let jsonResult = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.mutableContainers)
                         let branches = jsonResult as? [Dictionary<String, Any>]
-                        for i in branches! {
-                            let repo = i["name"]! as? String
-                            let dict = i["commit"]! as? NSDictionary
-                            let sha = dict!["sha"] as? String
-                            self.getCommits(userInfo: userInfo, sha: sha!, repo: repo!)
+                        for (i, element) in branches!.enumerated() {
+                            let repo = element["name"]! as? String
+                            self.RepoCommits[repo!] = []
+                            if (i == branches!.count - 1) {
+                                self.getCommits(userInfo: userInfo, repo: repo!, end: true)
+                            } else {
+                                self.getCommits(userInfo: userInfo, repo: repo!, end: false)
+                            }
 
                         }
                     }
-                    self.delegate?.repoResponse(data: self.RepoCommits)
                     
                 } catch {
                     //Catch and handle the exception
@@ -67,10 +66,9 @@ class RepoData {
         }
         repoTask.resume()
     }
-    
-    func getCommits(userInfo: String, sha: String, repo: String) {
+    func getCommits(userInfo: String, repo: String, end: Bool) {
         var urlPath = self.urlPathBase
-        urlPath = urlPath + userInfo + "/commits/" + sha
+        urlPath = urlPath + userInfo + "/commits?sha=" + repo
         let url:NSURL? = NSURL(string: urlPath)
         let repoTask = self.urlSession.dataTask(with: url! as URL) { (data, response, error) -> Void in
             if error != nil {
@@ -78,76 +76,49 @@ class RepoData {
             } else {
                 do {
                     if data != nil {
+                        
                         let jsonResult = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.mutableContainers)
-                        let commit = jsonResult as? NSDictionary
-                        let commitInfo = commit!["commit"]! as? NSDictionary
-                        
-                        // Gets info of commit author
-                        let author = commitInfo!["author"]! as? NSDictionary
-                        let name = author!["name"]! as? String
-                        let email = author!["email"]! as? String
-                        let date = author!["date"]! as? String
-                        
-                        // Gets commit message
-                        let message = commitInfo!["message"]! as? String
-                        
-                        // Gets parent commits
-                        let parents = commit!["parents"]! as? NSArray
-                        let parentDict = parents![0] as? NSDictionary
-                        let pSha = parentDict!["sha"]! as? String
-                            // TODO: Allow for multiple parents
-                        
-                        // Gets commit stats
-                        let stats = commit!["stats"] as? NSDictionary
-                        let total = stats!["total"]! as? Int
-                        let add = stats!["additions"]! as? Int
-                        let del = stats!["deletions"]! as? Int
-                        
-//                        let commitDict: Dictionary<String, Any> = ["repo": repo, "message": message!, "date": date!, "author": name!, "email": email!, "sha": sha, "pSha": pSha, "statsTotal": total!, "statsAdd": add!, "statsDel": del!]
-                        
-                        let commitStruct = Commit(repo: repo, message: message!, date: date!, author: name!, email: email!, sha: sha, pSha: pSha!, statsTotal: total!, statsAdd: add!, statsDel: del!)
-                        
-                        self.RepoCommits.append(commitStruct)
-                        
+                        let commits = jsonResult as? NSArray
+                        for i in commits! {
+                            let commit = i as? NSDictionary
+                            let commitInfo = commit!["commit"]! as? NSDictionary
+                            
+                            // Gets sha of commit
+                            let sha = commit!["sha"]! as? String
+    
+                            // Gets info of commit author
+                            let author = commitInfo!["author"]! as? NSDictionary
+                            let name = author!["name"]! as? String
+                            let email = author!["email"]! as? String
+                            let date = author!["date"]! as? String
+    
+                            // Gets commit message
+                            let message = commitInfo!["message"]! as? String
+    
+                            // Gets parent commits
+                            var pSha: String
+                            let parents = commit!["parents"]! as? NSArray
+                            if (parents!.count != 0) {
+                                let parentDict = parents![0] as? NSDictionary
+                                pSha = (parentDict!["sha"]! as? String)!
+                            } else {
+                                pSha = "done"
+                            }               // TODO: Allow for multiple parents, AKA merges
+                            
+                            // Create commit struct and append to RepoCommits
+                            let commitStruct = Commit(repo: repo, message: message!, date: date!, author: name!, email: email!, sha: sha!, pSha: pSha)
+                            self.RepoCommits[repo]!.append(commitStruct)
+                        }
+                        if (end) {
+                            self.delegate?.repoResponse(data: self.RepoCommits)
+                        }
                     }
                 } catch {
-                    
+
                 }
             }
         }
         repoTask.resume()
     }
-    
-//    func getRepos(username: String) {
-//        let username = username.trimmingCharacters(in: .whitespacesAndNewlines)
-//        var urlPath = self.urlPathBase + "users/" + username + "/repos"
-//        urlPath = self.urlPathBase + "users/samuelshumake/repos"         //TESTING
-//        let url: NSURL? = NSURL(string: urlPath)
-//
-//        let userTask = self.urlSession.dataTask(with: url! as URL) { (data, response, error) -> Void in
-//            if error != nil {
-//                print(error!)
-//            } else {
-//                do {
-//                    if data != nil {
-//                        let jsonResult = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.mutableContainers)
-//                        let user = jsonResult as? [Dictionary<String, Any>]
-//                        for i in user! {
-//                            let repo = i["name"]! as? String
-//                            self.Repos.append(repo!)
-////                            let branch = "repos/samuelshumake/" + repo! + "/branches"
-////                            let created = i["created_at"]! as? String
-////                            let updated = i["pushed_at"]! as? String
-//                        }
-//                    }
-//                    self.delegate?.repoResponse(data: self.Repos)
-//                } catch {
-//
-//                }
-//            }
-//        }
-//        userTask.resume()
-//
-//    }
-
 }
+
