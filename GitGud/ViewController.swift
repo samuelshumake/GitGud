@@ -27,7 +27,7 @@ class ViewController: UIViewController, RepoDataProtocol {
     }
     
     // MARK: Reponse Handlers
-    func repoResponse(data: Array<LinkedList<Node<Commit>>>) {
+    func repoResponse(data: Array<Commit>) {
         print(data)
     }
     

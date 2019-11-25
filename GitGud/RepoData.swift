@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RepoDataProtocol {
-    func repoResponse(data: Array<LinkedList<Node<Commit>>>)
+    func repoResponse(data: Array<Commit>)
     func responseError(message: String)
 }
 
@@ -20,6 +20,10 @@ struct Commit {
     var author: String
     var email: String
     var sha: String
+    var pSha: String
+    var statsTotal: Int
+    var statsAdd: Int
+    var statsDel: Int
 }
 
 class RepoData {
@@ -30,7 +34,7 @@ class RepoData {
 
     init() {}
     
-    var RepoCommits: Array<LinkedList<Node<Commit>>> = []
+    var RepoCommits: Array<Commit> = []
     
     func getRepoData(userInfo: String) {
 //        let userInfo = userInfo.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -80,25 +84,31 @@ class RepoData {
                         
                         // Gets info of commit author
                         let author = commitInfo!["author"]! as? NSDictionary
-                        let name = author!["name"]!
-                        let email = author!["email"]!
-                        let date = author!["date"]!
+                        let name = author!["name"]! as? String
+                        let email = author!["email"]! as? String
+                        let date = author!["date"]! as? String
                         
                         // Gets commit message
-                        let message = commitInfo!["message"]!
+                        let message = commitInfo!["message"]! as? String
                         
                         // Gets parent commits
-                        let parent = commit!["parents"]! as? NSArray
-                        print(parent![0])
-                        // TODO: Allow for multiple parents
-                        // TODO: Get relevant info from commits and push to RepoCommits linked list as Commit structs
+                        let parents = commit!["parents"]! as? NSArray
+                        let parentDict = parents![0] as? NSDictionary
+                        let pSha = parentDict!["sha"]! as? String
+                            // TODO: Allow for multiple parents
                         
-                        //"commit" : committer : name, email,date
-                        //"commit" : message
+                        // Gets commit stats
+                        let stats = commit!["stats"] as? NSDictionary
+                        let total = stats!["total"]! as? Int
+                        let add = stats!["additions"]! as? Int
+                        let del = stats!["deletions"]! as? Int
                         
-                        //"parents" : sha, api url, html url
+//                        let commitDict: Dictionary<String, Any> = ["repo": repo, "message": message!, "date": date!, "author": name!, "email": email!, "sha": sha, "pSha": pSha, "statsTotal": total!, "statsAdd": add!, "statsDel": del!]
                         
-                        //"stats" : total, additions, deletions
+                        let commitStruct = Commit(repo: repo, message: message!, date: date!, author: name!, email: email!, sha: sha, pSha: pSha!, statsTotal: total!, statsAdd: add!, statsDel: del!)
+                        
+                        self.RepoCommits.append(commitStruct)
+                        
                     }
                 } catch {
                     
