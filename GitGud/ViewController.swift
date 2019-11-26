@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController, RepoDataProtocol {
 
     @IBOutlet weak var getData: UIButton!
-    @IBOutlet weak var repoTableView: UITableView!
     @IBOutlet weak var usernameEntry: UITextField!
     @IBOutlet weak var repoEntry: UITextField!
     var dataSession = RepoData()
@@ -28,10 +27,7 @@ class ViewController: UIViewController, RepoDataProtocol {
     
     // MARK: Reponse Handlers
     func repoResponse(data: Dictionary<String, Array<Commit>>) {
-        for i in data {
-            print(i)
-            print("\n\n")
-        }
+        
     }
     
     func responseError(message: String) {

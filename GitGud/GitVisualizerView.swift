@@ -10,37 +10,30 @@ import UIKit
 
 @IBDesignable
 class GitVisualizerView: UIView {
-    
-    private struct Constants {
-        static let lineWidth: CGFloat = 5.0
-        static let arcWidth: CGFloat = 76
-    
-        static var halfOfLineWidth: CGFloat {
-            return lineWidth / 2
-        }
-    }
 
     @IBInspectable
     var circleColor: UIColor = UIColor.blue
+    var outlineColor: UIColor = UIColor.black
     
     override func draw(_ rect: CGRect) {
-        let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
         
-        let radius: CGFloat = max(bounds.width, bounds.height)
-
-        // 3
+        let center = CGPoint(x: 300, y: 30)
+        drawCommit(center: center)
+    }
+    
+    func drawCommit(center: CGPoint) {
+        let radius: CGFloat = 20.0
         let startAngle: CGFloat = 0
         let endAngle: CGFloat = 2 * .pi
-        
         let path = UIBezierPath(arcCenter: center,
-                                   radius: radius/10 - Constants.arcWidth/2,
+                                   radius: radius,
                                    startAngle: startAngle,
                                endAngle: endAngle,
                                 clockwise: true)
-
-        // 5
-        path.lineWidth = Constants.arcWidth
-        circleColor.setStroke()
+        path.lineWidth = 2.0
+        circleColor.setFill()
+        outlineColor.setStroke()
+        path.fill()
         path.stroke()
     }
 
