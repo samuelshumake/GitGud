@@ -14,6 +14,7 @@ class ViewController: UIViewController, RepoDataProtocol {
     @IBOutlet weak var usernameEntry: UITextField!
     @IBOutlet weak var repoEntry: UITextField!
     var dataSession = RepoData()
+    var repoInfo: Dictionary<String, Array<Commit>> = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +26,30 @@ class ViewController: UIViewController, RepoDataProtocol {
         self.dataSession.getRepoData(userInfo: entry)
     }
     
+    func nextScreen(_ sender: Any) {
+        DispatchQueue.main.async() {
+            self.performSegue(withIdentifier: "GitDetail", sender: self)
+        }
+    }
+    
+    
     // MARK: Reponse Handlers
     func repoResponse(data: Dictionary<String, Array<Commit>>) {
-        
+        repoInfo = data
+        nextScreen(self)
     }
     
     func responseError(message: String) {
         DispatchQueue.main.async() {
+        }
+    }
+    
+    
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GitDetail" {
+            let contentViewController = segue.destination as? GitVisualizerViewController
+            contentViewController!.repoInfo = self.repoInfo
         }
     }
     

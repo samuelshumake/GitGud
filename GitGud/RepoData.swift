@@ -32,8 +32,6 @@ class RepoData {
 
     init() {}
     
-    
-    
     func getRepoData(userInfo: String) {
         let userInfo = userInfo.trimmingCharacters(in: .whitespacesAndNewlines)
         var urlPath = self.urlPathBase

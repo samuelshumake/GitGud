@@ -52,7 +52,6 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="repoDataFunc:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zHd-Zy-cwW"/>
-                                    <segue destination="WIw-5J-h1N" kind="show" id="vfX-Rw-JHt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -82,31 +81,20 @@
                         <outlet property="getData" destination="bEp-Xc-ty4" id="Fjp-PX-uku"/>
                         <outlet property="repoEntry" destination="Pub-Zq-ieb" id="XeE-0G-P8Z"/>
                         <outlet property="usernameEntry" destination="kgL-ao-5W0" id="AZR-Fc-gax"/>
+                        <segue destination="WIw-5J-h1N" kind="show" identifier="GitDetail" id="H88-2Q-5Nc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1825" y="119"/>
+            <point key="canvasLocation" x="1817" y="119"/>
         </scene>
-        <!--View Controller-->
+        <!--Git Visualizer View Controller-->
         <scene sceneID="S0X-nS-bWE">
             <objects>
-                <viewController id="WIw-5J-h1N" customClass="ViewController" customModule="GitGud" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WIw-5J-h1N" customClass="GitVisualizerViewController" customModule="GitGud" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LMx-kh-VmJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tgC-3S-KnC" customClass="GitVisualizerView" customModule="GitGud" customModuleProvider="target">
-                                <rect key="frame" x="20" y="88" width="374" height="774"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                        <color key="value" red="0.3411764706" green="0.85490196080000003" blue="0.83529411760000005" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="blE-Pe-OcQ"/>
                     </view>

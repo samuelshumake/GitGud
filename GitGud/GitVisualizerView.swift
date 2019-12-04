@@ -10,15 +10,14 @@ import UIKit
 
 @IBDesignable
 class GitVisualizerView: UIView {
-
+    
     @IBInspectable
     var circleColor: UIColor = UIColor.blue
     var outlineColor: UIColor = UIColor.black
     
     override func draw(_ rect: CGRect) {
-        
         let center = CGPoint(x: 300, y: 30)
-        drawCommit(center: center)
+//        drawCommit(center: center)
     }
     
     func drawCommit(center: CGPoint) {
@@ -36,5 +35,4 @@ class GitVisualizerView: UIView {
         path.fill()
         path.stroke()
     }
-
 }
