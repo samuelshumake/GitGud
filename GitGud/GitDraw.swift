@@ -39,14 +39,17 @@ class GitDraw: UIView {
         var y = bounds.height - 60
         
         for branch in repoInfo {
-            var p = CGPoint(x: x, y: y)
-            drawCommit(center: p)
+//            let p = CGPoint(x: x, y: y)
+//            drawCommit(center: p)
             
             // DRAWING THE 3 BRANCHES
-            
+            print("\n\n")
             for commit in branch.value {
                 print(commit)
                 
+                let p = CGPoint(x: x, y: y)
+                drawCommit(center: p)
+                y -= 100
                 // CYCLES THROUGH THE COMMITS
             }
         }
