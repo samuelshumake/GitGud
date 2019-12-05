@@ -23,7 +23,8 @@ class ViewController: UIViewController, RepoDataProtocol {
 
     @IBAction func repoDataFunc(_ sender: Any) {
         let entry: String = usernameEntry.text! + "/" + repoEntry.text!
-        self.dataSession.getRepoData(userInfo: entry)
+//        self.dataSession.getRepoData(userInfo: entry)
+        self.dataSession.getRepoData(userInfo: "samuelshumake/GitGud")
     }
     
     func nextScreen(_ sender: Any) {

@@ -15,7 +15,7 @@
 		12BEF52C237620F200C30D53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12BEF52B237620F200C30D53 /* Assets.xcassets */; };
 		12BEF52F237620F200C30D53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12BEF52D237620F200C30D53 /* LaunchScreen.storyboard */; };
 		12BEF5372376217600C30D53 /* RepoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BEF5362376217600C30D53 /* RepoData.swift */; };
-		12C289F6237A68ED00796A40 /* GitVisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C289F5237A68ED00796A40 /* GitVisualizerView.swift */; };
+		12C289F6237A68ED00796A40 /* GitDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C289F5237A68ED00796A40 /* GitDraw.swift */; };
 		12DFBAB923983C3100001393 /* GitVisualizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DFBAB823983C3100001393 /* GitVisualizerViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +30,7 @@
 		12BEF52E237620F200C30D53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12BEF530237620F200C30D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12BEF5362376217600C30D53 /* RepoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoData.swift; sourceTree = "<group>"; };
-		12C289F5237A68ED00796A40 /* GitVisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitVisualizerView.swift; sourceTree = "<group>"; };
+		12C289F5237A68ED00796A40 /* GitDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitDraw.swift; sourceTree = "<group>"; };
 		12DFBAB823983C3100001393 /* GitVisualizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitVisualizerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,7 +70,7 @@
 				12DFBAB823983C3100001393 /* GitVisualizerViewController.swift */,
 				12BEF5362376217600C30D53 /* RepoData.swift */,
 				12BEF525237620F100C30D53 /* Main.storyboard */,
-				12C289F5237A68ED00796A40 /* GitVisualizerView.swift */,
+				12C289F5237A68ED00796A40 /* GitDraw.swift */,
 				12BEF52B237620F200C30D53 /* Assets.xcassets */,
 				12BEF52D237620F200C30D53 /* LaunchScreen.storyboard */,
 				12BEF530237620F200C30D53 /* Info.plist */,
@@ -154,7 +154,7 @@
 				12DFBAB923983C3100001393 /* GitVisualizerViewController.swift in Sources */,
 				12BEF5372376217600C30D53 /* RepoData.swift in Sources */,
 				12BEF520237620F100C30D53 /* AppDelegate.swift in Sources */,
-				12C289F6237A68ED00796A40 /* GitVisualizerView.swift in Sources */,
+				12C289F6237A68ED00796A40 /* GitDraw.swift in Sources */,
 				12BEF522237620F100C30D53 /* SceneDelegate.swift in Sources */,
 				12BEF52A237620F100C30D53 /* GitGud.xcdatamodeld in Sources */,
 			);
