@@ -45,11 +45,11 @@ class GitDraw: UIView {
             // DRAWING THE 3 BRANCHES
             print("\n\n")
             for commit in branch.value {
-                print(commit)
                 
                 let p = CGPoint(x: x, y: y)
                 drawCommit(center: p)
                 y -= 100
+                print(y)
                 // CYCLES THROUGH THE COMMITS
             }
         }

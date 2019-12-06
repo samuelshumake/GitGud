@@ -11,79 +11,79 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GitGud" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="InitialPageView" customModule="GitGud" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gs0-28-l9c">
-                                <rect key="frame" x="20" y="165" width="79" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GITGUD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mje-V0-jrL">
+                                <rect key="frame" x="20" y="99" width="374" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkx-Iq-7Ac">
-                                <rect key="frame" x="20" y="213" width="40" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kgL-ao-5W0">
-                                <rect key="frame" x="119" y="158" width="275" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <action selector="textFieldDidEndEditing:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="76e-Vl-vN2"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pub-Zq-ieb">
-                                <rect key="frame" x="119" y="206" width="275" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GitGud" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mje-V0-jrL">
-                                <rect key="frame" x="20" y="99" width="374" height="41"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEp-Xc-ty4">
-                                <rect key="frame" x="20" y="260" width="374" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEp-Xc-ty4">
+                                <rect key="frame" x="20" y="734" width="374" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
+                                <state key="normal" title="Visualize"/>
                                 <connections>
                                     <action selector="repoDataFunc:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zHd-Zy-cwW"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSW-a8-KDg">
-                                <rect key="frame" x="20" y="769" width="374" height="93"/>
+                                <rect key="frame" x="20" y="187" width="374" height="231"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gs0-28-l9c">
+                                <rect key="frame" x="20" y="504" width="116" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Repository" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkx-Iq-7Ac">
+                                <rect key="frame" x="20" y="595" width="121" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kgL-ao-5W0">
+                                <rect key="frame" x="20" y="539" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="textColor"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="textFieldDidEndEditing:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="76e-Vl-vN2"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pub-Zq-ieb">
+                                <rect key="frame" x="20" y="630" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.95031197686662039" green="0.96989833274126136" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="Pub-Zq-ieb" firstAttribute="top" secondItem="kgL-ao-5W0" secondAttribute="bottom" constant="14" id="28x-f5-xDO"/>
-                            <constraint firstItem="bEp-Xc-ty4" firstAttribute="top" secondItem="Pub-Zq-ieb" secondAttribute="bottom" constant="20" id="3ap-Nl-0YV"/>
-                            <constraint firstItem="Pub-Zq-ieb" firstAttribute="leading" secondItem="Nkx-Iq-7Ac" secondAttribute="trailing" constant="59" id="99u-7n-XC1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kgL-ao-5W0" secondAttribute="trailing" constant="20" id="FKh-Gk-axR"/>
-                            <constraint firstItem="Nkx-Iq-7Ac" firstAttribute="top" secondItem="gs0-28-l9c" secondAttribute="bottom" constant="27" id="HVT-M6-IQn"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pub-Zq-ieb" secondAttribute="trailing" constant="20" id="MqX-7B-Xk6"/>
-                            <constraint firstItem="mje-V0-jrL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11" id="Ptz-eG-nFy"/>
-                            <constraint firstItem="gs0-28-l9c" firstAttribute="top" secondItem="mje-V0-jrL" secondAttribute="bottom" constant="25" id="QMZ-q0-Imk"/>
-                            <constraint firstItem="bEp-Xc-ty4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="T3q-gP-J6c"/>
-                            <constraint firstItem="kgL-ao-5W0" firstAttribute="leading" secondItem="gs0-28-l9c" secondAttribute="trailing" constant="20" id="VDU-f6-HKf"/>
-                            <constraint firstItem="Nkx-Iq-7Ac" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="WYa-wF-RM2"/>
-                            <constraint firstItem="gs0-28-l9c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Ymf-xy-q6g"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bEp-Xc-ty4" secondAttribute="trailing" constant="20" id="kJR-yc-Tgf"/>
-                            <constraint firstItem="mje-V0-jrL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mqN-9t-9W2"/>
-                            <constraint firstItem="kgL-ao-5W0" firstAttribute="top" secondItem="mje-V0-jrL" secondAttribute="bottom" constant="18" id="tyT-9a-etq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mje-V0-jrL" secondAttribute="trailing" constant="20" id="wvl-gd-pou"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.15385637974537125" green="0.53381528556643731" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="0.25091149557225489" green="0.64843401883854845" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="0.16301780016620415" green="0.56025627461211158" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="4pW-WV-pXZ"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="errorLabel" destination="TSW-a8-KDg" id="16d-W2-n3h"/>
                         <outlet property="getData" destination="bEp-Xc-ty4" id="Fjp-PX-uku"/>
@@ -104,30 +104,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DfN-71-8oW" customClass="GitDraw" customModule="GitGud" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                        <color key="value" red="0.59366174660922599" green="0.85123370973701418" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                        <color key="value" red="0.35038393517979993" green="0.64708740569316103" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="VpH-Xw-oI9" appends="YES" id="xPl-ct-eYI"/>
-                                </connections>
-                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y5H-Bg-7jy">
+                                <rect key="frame" x="20" y="44" width="374" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T9U-V1-v3C" userLabel="Content View" customClass="GitDraw" customModule="GitGud" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="818"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="T9U-V1-v3C" secondAttribute="bottom" id="5KC-AU-PAo"/>
+                                    <constraint firstAttribute="trailing" secondItem="T9U-V1-v3C" secondAttribute="trailing" id="D9V-nr-a7u"/>
+                                    <constraint firstItem="T9U-V1-v3C" firstAttribute="bottom" secondItem="YW4-uZ-hWu" secondAttribute="bottom" id="HvX-Mq-tUK"/>
+                                    <constraint firstItem="T9U-V1-v3C" firstAttribute="top" secondItem="YW4-uZ-hWu" secondAttribute="top" id="Uzp-kd-IIl"/>
+                                    <constraint firstItem="T9U-V1-v3C" firstAttribute="leading" secondItem="YW4-uZ-hWu" secondAttribute="leading" id="ahX-1T-b6i"/>
+                                    <constraint firstItem="T9U-V1-v3C" firstAttribute="centerX" secondItem="Y5H-Bg-7jy" secondAttribute="centerX" id="h0F-WV-qZU"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="txF-Vx-8qI"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="YW4-uZ-hWu"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Y5H-Bg-7jy" firstAttribute="top" secondItem="blE-Pe-OcQ" secondAttribute="top" id="Dqg-nc-m1M"/>
+                            <constraint firstItem="Y5H-Bg-7jy" firstAttribute="leading" secondItem="LMx-kh-VmJ" secondAttribute="leadingMargin" id="WZ4-CO-QEX"/>
+                            <constraint firstItem="Y5H-Bg-7jy" firstAttribute="bottom" secondItem="blE-Pe-OcQ" secondAttribute="bottom" id="sI9-XF-zny"/>
+                            <constraint firstItem="Y5H-Bg-7jy" firstAttribute="trailing" secondItem="LMx-kh-VmJ" secondAttribute="trailingMargin" id="tYO-co-Ndg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="blE-Pe-OcQ"/>
                     </view>
                     <navigationItem key="navigationItem" id="Imq-2A-caI"/>
                     <connections>
-                        <outlet property="gitDraw" destination="DfN-71-8oW" id="DKL-6b-1yg"/>
+                        <outlet property="gitDraw" destination="T9U-V1-v3C" id="J6z-6m-reW"/>
                         <outlet property="pinchRecognizer" destination="VpH-Xw-oI9" id="Kcf-87-4cs"/>
                     </connections>
                 </viewController>
