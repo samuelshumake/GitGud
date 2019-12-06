@@ -45,15 +45,19 @@ class RepoData {
                     if data != nil {
                         let jsonResult = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.mutableContainers)
                         let branches = jsonResult as? [Dictionary<String, Any>]
-                        for (i, element) in branches!.enumerated() {
-                            let repo = element["name"]! as? String
-                            self.RepoCommits[repo!] = []
-                            if (i == branches!.count - 1) {
-                                self.getCommits(userInfo: userInfo, repo: repo!, end: true)
-                            } else {
-                                self.getCommits(userInfo: userInfo, repo: repo!, end: false)
-                            }
+                        if branches != nil {
+                            for (i, element) in branches!.enumerated() {
+                                let repo = element["name"]! as? String
+                                self.RepoCommits[repo!] = []
+                                if (i == branches!.count - 1) {
+                                    self.getCommits(userInfo: userInfo, repo: repo!, end: true)
+                                } else {
+                                    self.getCommits(userInfo: userInfo, repo: repo!, end: false)
+                                }
 
+                            }
+                        } else {
+                            self.delegate?.responseError(message: "Github username or repository is invalid.")
                         }
                     }
                     

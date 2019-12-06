@@ -10,6 +10,7 @@ import UIKit
 
 class GitVisualizerViewController: UIViewController {
     
+    @IBOutlet var pinchRecognizer: UIPinchGestureRecognizer!
     @IBOutlet weak var gitDraw: GitDraw!
     var repoInfo: Dictionary<String, Array<Commit>> = [:]
 
@@ -19,7 +20,13 @@ class GitVisualizerViewController: UIViewController {
         
     }
     
+    @IBAction func pinchZoom(_ sender: UIPinchGestureRecognizer) {
+        if pinchRecognizer.state == .began || pinchRecognizer.state == .changed {
+            pinchRecognizer.view?.transform = (pinchRecognizer.view?.transform.scaledBy(x: pinchRecognizer.scale, y: pinchRecognizer.scale))!
+           pinchRecognizer.scale = 1.0
+        }
+        
+    }
 }
-
-
+    
 

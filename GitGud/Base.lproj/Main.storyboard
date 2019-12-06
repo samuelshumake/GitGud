@@ -54,6 +54,13 @@
                                     <action selector="repoDataFunc:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zHd-Zy-cwW"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSW-a8-KDg">
+                                <rect key="frame" x="20" y="769" width="374" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -78,6 +85,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="4pW-WV-pXZ"/>
                     <connections>
+                        <outlet property="errorLabel" destination="TSW-a8-KDg" id="16d-W2-n3h"/>
                         <outlet property="getData" destination="bEp-Xc-ty4" id="Fjp-PX-uku"/>
                         <outlet property="repoEntry" destination="Pub-Zq-ieb" id="XeE-0G-P8Z"/>
                         <outlet property="usernameEntry" destination="kgL-ao-5W0" id="AZR-Fc-gax"/>
@@ -86,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1817" y="119"/>
+            <point key="canvasLocation" x="1815.9420289855075" y="118.52678571428571"/>
         </scene>
         <!--Git Visualizer View Controller-->
         <scene sceneID="S0X-nS-bWE">
@@ -97,9 +105,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DfN-71-8oW" customClass="GitDraw" customModule="GitGud" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="762"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <gestureRecognizers/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
                                         <color key="value" red="0.59366174660922599" green="0.85123370973701418" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -108,6 +117,9 @@
                                         <color key="value" red="0.35038393517979993" green="0.64708740569316103" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="VpH-Xw-oI9" appends="YES" id="xPl-ct-eYI"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -116,9 +128,15 @@
                     <navigationItem key="navigationItem" id="Imq-2A-caI"/>
                     <connections>
                         <outlet property="gitDraw" destination="DfN-71-8oW" id="DKL-6b-1yg"/>
+                        <outlet property="pinchRecognizer" destination="VpH-Xw-oI9" id="Kcf-87-4cs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZr-Py-d5u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="VpH-Xw-oI9">
+                    <connections>
+                        <action selector="pinchZoom:" destination="WIw-5J-h1N" id="tew-gw-LAM"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2750.7246376811595" y="118.52678571428571"/>
         </scene>

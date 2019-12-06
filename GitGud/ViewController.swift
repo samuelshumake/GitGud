@@ -15,6 +15,7 @@ class ViewController: UIViewController, RepoDataProtocol {
     @IBOutlet weak var repoEntry: UITextField!
     var dataSession = RepoData()
     var repoInfo: Dictionary<String, Array<Commit>> = [:]
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +24,8 @@ class ViewController: UIViewController, RepoDataProtocol {
 
     @IBAction func repoDataFunc(_ sender: Any) {
         let entry: String = usernameEntry.text! + "/" + repoEntry.text!
-//        self.dataSession.getRepoData(userInfo: entry)
-        self.dataSession.getRepoData(userInfo: "samuelshumake/GitGud")
+        self.dataSession.getRepoData(userInfo: entry)
+//        self.dataSession.getRepoData(userInfo: "samuelshumake/GitGud")
     }
     
     func nextScreen(_ sender: Any) {
@@ -38,10 +39,14 @@ class ViewController: UIViewController, RepoDataProtocol {
     func repoResponse(data: Dictionary<String, Array<Commit>>) {
         repoInfo = data
         nextScreen(self)
+        DispatchQueue.main.async() {
+            self.errorLabel.text = ""
+        }
     }
     
     func responseError(message: String) {
         DispatchQueue.main.async() {
+            self.errorLabel.text = message
         }
     }
     
