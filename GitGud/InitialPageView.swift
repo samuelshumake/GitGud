@@ -37,8 +37,17 @@ class InitialPageView: UIView {
 @IBDesignable
 class EntryButton: UIButton {
     
-    @IBInspectable var fillColor: UIColor = UIColor.green
+    @IBInspectable var fillColor: UIColor = UIColor.white
     
-//    override func draw(_ rect: CGRect) {
-//    }
+    override func draw(_ rect: CGRect) {
+        let path = UIBezierPath(roundedRect: rect, cornerRadius: CGFloat(22))
+        fillColor.setFill()
+        path.fill()
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = path.cgPath
+        self.layer.mask = shapeLayer
+
+        
+    }
 }

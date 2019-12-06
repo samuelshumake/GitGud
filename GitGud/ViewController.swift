@@ -13,9 +13,11 @@ class ViewController: UIViewController, RepoDataProtocol {
     @IBOutlet weak var getData: UIButton!
     @IBOutlet weak var usernameEntry: UITextField!
     @IBOutlet weak var repoEntry: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var gitImage: UIImageView!
+    
     var dataSession = RepoData()
     var repoInfo: Dictionary<String, Array<Commit>> = [:]
-    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +43,14 @@ class ViewController: UIViewController, RepoDataProtocol {
         nextScreen(self)
         DispatchQueue.main.async() {
             self.errorLabel.text = ""
+            self.gitImage.image = UIImage(named: "Git")
         }
     }
     
     func responseError(message: String) {
         DispatchQueue.main.async() {
             self.errorLabel.text = message
+            self.gitImage.image = UIImage(named: "GitError")
         }
     }
     

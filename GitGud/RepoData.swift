@@ -57,7 +57,7 @@ class RepoData {
 
                             }
                         } else {
-                            self.delegate?.responseError(message: "Github username or repository is invalid.")
+                            self.delegate?.responseError(message: "Invalid username or repository.")
                         }
                     }
                     
