@@ -96,26 +96,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DfN-71-8oW" customClass="GitDraw" customModule="GitGud" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="762"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                        <color key="value" red="0.59366174660922599" green="0.85123370973701418" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                        <color key="value" red="0.35038393517979993" green="0.64708740569316103" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJM-K7-i6V">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qg8-ut-ytQ" customClass="GitDraw" customModule="GitGud" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="qg8-ut-ytQ" secondAttribute="trailing" id="W2x-HB-5iT"/>
+                                    <constraint firstItem="qg8-ut-ytQ" firstAttribute="centerX" secondItem="gJM-K7-i6V" secondAttribute="centerX" id="Wza-qF-VT5"/>
+                                    <constraint firstItem="qg8-ut-ytQ" firstAttribute="top" secondItem="gJM-K7-i6V" secondAttribute="top" id="d1B-4n-cr6"/>
+                                    <constraint firstItem="qg8-ut-ytQ" firstAttribute="leading" secondItem="gJM-K7-i6V" secondAttribute="leading" id="mab-0n-s1r"/>
+                                    <constraint firstAttribute="bottom" secondItem="qg8-ut-ytQ" secondAttribute="bottom" id="rTT-iU-k70"/>
+                                    <constraint firstItem="qg8-ut-ytQ" firstAttribute="bottom" secondItem="gJM-K7-i6V" secondAttribute="bottom" id="tMj-mc-Ez3"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="mmG-YS-BZ2"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Bz3-Rp-RAc"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gJM-K7-i6V" firstAttribute="bottom" secondItem="blE-Pe-OcQ" secondAttribute="bottom" id="1wA-Tq-9Yc"/>
+                            <constraint firstItem="gJM-K7-i6V" firstAttribute="top" secondItem="blE-Pe-OcQ" secondAttribute="top" id="69O-3i-0t3"/>
+                            <constraint firstItem="gJM-K7-i6V" firstAttribute="trailing" secondItem="blE-Pe-OcQ" secondAttribute="trailing" id="WIi-7E-gTF"/>
+                            <constraint firstItem="gJM-K7-i6V" firstAttribute="leading" secondItem="blE-Pe-OcQ" secondAttribute="leading" id="cPK-MT-60d"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="blE-Pe-OcQ"/>
                     </view>
                     <navigationItem key="navigationItem" id="Imq-2A-caI"/>
                     <connections>
-                        <outlet property="gitDraw" destination="DfN-71-8oW" id="DKL-6b-1yg"/>
+                        <outlet property="gitDraw" destination="qg8-ut-ytQ" id="amV-xx-yhB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZr-Py-d5u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
