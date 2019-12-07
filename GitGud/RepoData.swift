@@ -9,7 +9,6 @@
 import UIKit
 
 protocol RepoDataProtocol {
-//    func repoResponse(data: Dictionary<String, Array<Commit>>)
     func repoResponse(data: [String: [Commit]])
     func responseError(message: String)
 }
@@ -30,6 +29,7 @@ class RepoData {
     private var dataTask: URLSessionDataTask? = nil
     var delegate: RepoDataProtocol? = nil
     var RepoCommits: [String: [Commit]] = [:]
+    var storedShas: [String] = []
 //    var RepoCommits: Array<Dictionary<String, Array<Commit>>> = []
 
     init() {}
@@ -87,6 +87,9 @@ class RepoData {
                             
                             // Gets sha of commit
                             let sha = commit!["sha"]! as? String
+//                            if self.storedShas.contains(sha!) {
+//                                continue
+//                            }
     
                             // Gets info of commit author
                             let author = commitInfo!["author"]! as? NSDictionary
@@ -109,6 +112,7 @@ class RepoData {
                             
                             // Create commit struct and append to RepoCommits
                             let commitStruct = Commit(repo: repo, message: message!, date: date!, author: name!, email: email!, sha: sha!, pSha: pSha)
+                            self.storedShas.append(sha!)
                             self.RepoCommits[repo]!.insert(commitStruct, at: 0)
                         }
                         if (end) {

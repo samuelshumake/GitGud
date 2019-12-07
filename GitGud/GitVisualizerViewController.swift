@@ -18,7 +18,7 @@ class GitVisualizerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gitDraw.repoInfo = repoInfo
-        gitDraw.frame = CGRect(x: 0, y: 0, width: gitDraw.frame.width, height: 4000)
+        gitDraw.frame = CGRect(x: 0, y: 0, width: 1000, height: 4000)
         gitScroll.contentOffset = CGPoint(x: 0, y: 3100)
     }
     
@@ -29,10 +29,10 @@ class GitVisualizerViewController: UIViewController {
     }
     
     @IBAction func pinchZoom(_ sender: UIPinchGestureRecognizer) {
-        if pinchRecognizer.state == .began || pinchRecognizer.state == .changed {
-            pinchRecognizer.view?.transform = (pinchRecognizer.view?.transform.scaledBy(x: pinchRecognizer.scale, y: pinchRecognizer.scale))!
-           pinchRecognizer.scale = 1.0
-        }
+//        if pinchRecognizer.state == .began || pinchRecognizer.state == .changed {
+//            pinchRecognizer.view?.transform = (pinchRecognizer.view?.transform.scaledBy(x: pinchRecognizer.scale, y: pinchRecognizer.scale))!
+//           pinchRecognizer.scale = 1.0
+//        }
         
     }
 }

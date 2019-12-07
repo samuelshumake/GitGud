@@ -12,19 +12,31 @@ import UIKit
 class GitDraw: UIView {
     
     var repoInfo: [String: [Commit]] = [:]
+//    var storedCommits: Array<String> = []
+//    var storedPShas : Array<String> = []
     
     override func draw(_ rect: CGRect) {
-        let x = bounds.width / 2
+        var x = bounds.width / 2
         var y = bounds.height - 200
-        
+//        for branch in repoInfo {
+//            if branch.key == "master" {
+//                for commit in branch.value {
+//                    storedCommits.append(commit.message)
+//                    let p = CGPoint(x: x, y: y)
+//                    let btn = PushButton(frame: CGRect(x: x - 25, y: y, width: 50, height: 50))
+//                    self.addSubview(btn)
+//
+//
+//                    y -= 100
+//                }
+//            }
+//        }
         for branch in repoInfo {
             for commit in branch.value {
                 let p = CGPoint(x: x, y: y)
                 let btn = PushButton(frame: CGRect(x: x - 25, y: y, width: 50, height: 50))
                 self.addSubview(btn)
-                
                 y -= 100
-                // CYCLES THROUGH THE COMMITS
             }
         }
     }

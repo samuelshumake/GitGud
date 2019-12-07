@@ -40,6 +40,13 @@ class ViewController: UIViewController, RepoDataProtocol {
     // MARK: Reponse Handlers
     func repoResponse(data: Dictionary<String, Array<Commit>>) {
         repoInfo = data
+        
+        for i in repoInfo {
+            for j in i.value {
+                print(j.message)
+            }
+            print("\n\n\n\n\n\n")
+        }
         nextScreen(self)
         DispatchQueue.main.async() {
             self.errorLabel.text = ""
