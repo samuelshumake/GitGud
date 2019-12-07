@@ -19,7 +19,7 @@ class GitVisualizerViewController: UIViewController {
         super.viewDidLoad()
         gitDraw.repoInfo = repoInfo
         gitDraw.frame = CGRect(x: 0, y: 0, width: gitDraw.frame.width, height: 4000)
-        
+        gitScroll.contentOffset = CGPoint(x: 0, y: 3100)
     }
     
     override func viewDidAppear(_ animated: Bool) {

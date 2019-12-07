@@ -9,7 +9,8 @@
 import UIKit
 
 protocol RepoDataProtocol {
-    func repoResponse(data: Dictionary<String, Array<Commit>>)
+//    func repoResponse(data: Dictionary<String, Array<Commit>>)
+    func repoResponse(data: [String: [Commit]])
     func responseError(message: String)
 }
 
@@ -108,7 +109,7 @@ class RepoData {
                             
                             // Create commit struct and append to RepoCommits
                             let commitStruct = Commit(repo: repo, message: message!, date: date!, author: name!, email: email!, sha: sha!, pSha: pSha)
-                            self.RepoCommits[repo]!.append(commitStruct)
+                            self.RepoCommits[repo]!.insert(commitStruct, at: 0)
                         }
                         if (end) {
                             self.delegate?.repoResponse(data: self.RepoCommits)
