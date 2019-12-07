@@ -13,7 +13,7 @@ class GitVisualizerViewController: UIViewController {
     @IBOutlet var pinchRecognizer: UIPinchGestureRecognizer!
     @IBOutlet weak var gitDraw: GitDraw!
     @IBOutlet weak var gitScroll: UIScrollView!
-    var repoInfo: Dictionary<String, Array<Commit>> = [:]
+    var repoInfo: [String: [Commit]] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()

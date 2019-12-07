@@ -15,16 +15,14 @@ class GitDraw: UIView {
     var circleColor: UIColor = UIColor.blue
     var outlineColor: UIColor = UIColor.black
     
-    var repoInfo: Dictionary<String, Array<Commit>> = [:]
+    var repoInfo: [String: [Commit]] = [:]
     
     override func draw(_ rect: CGRect) {
         let x = bounds.width / 2
         var y = bounds.height - 40
         
         for branch in repoInfo {
-            print("\n\n\n\n\n\n")
             for commit in branch.value {
-                print(commit)
                 let p = CGPoint(x: x, y: y)
                 drawCommit(center: p)
                 y -= 100
@@ -46,4 +44,3 @@ class GitDraw: UIView {
         path.fill()
     }
 }
-

@@ -14,8 +14,6 @@ class InitialPageView: UIView {
     @IBInspectable var startColor: UIColor = .blue
     @IBInspectable var endColor: UIColor = .blue
     
-    var repoInfo: Dictionary<String, Array<Commit>> = [:]
-    
     override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()!
         let colors = [startColor.cgColor, endColor.cgColor]

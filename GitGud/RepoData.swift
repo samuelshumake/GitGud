@@ -29,6 +29,7 @@ class RepoData {
     private var dataTask: URLSessionDataTask? = nil
     var delegate: RepoDataProtocol? = nil
     var RepoCommits: [String: [Commit]] = [:]
+//    var RepoCommits: Array<Dictionary<String, Array<Commit>>> = []
 
     init() {}
     
