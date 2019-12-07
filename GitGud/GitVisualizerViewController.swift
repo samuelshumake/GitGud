@@ -12,12 +12,20 @@ class GitVisualizerViewController: UIViewController {
     
     @IBOutlet var pinchRecognizer: UIPinchGestureRecognizer!
     @IBOutlet weak var gitDraw: GitDraw!
+    @IBOutlet weak var gitScroll: UIScrollView!
     var repoInfo: Dictionary<String, Array<Commit>> = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         gitDraw.repoInfo = repoInfo
+        gitDraw.frame = CGRect(x: 0, y: 0, width: gitDraw.frame.width, height: 4000)
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let viewWidth = gitDraw.frame.width
+        let viewHeight = gitDraw.frame.height
+        gitScroll.contentSize = CGSize(width: viewWidth, height: viewHeight)
     }
     
     @IBAction func pinchZoom(_ sender: UIPinchGestureRecognizer) {

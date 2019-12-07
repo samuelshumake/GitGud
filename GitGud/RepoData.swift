@@ -39,7 +39,7 @@ class RepoData {
         let url:NSURL? = NSURL(string: urlPath)
         let repoTask = self.urlSession.dataTask(with: url! as URL) { (data, response, error) -> Void in
             if error != nil {
-                print(error!)
+                 self.delegate?.responseError(message: "Unable to connect.")
             } else {
                 do {
                     if data != nil {
@@ -54,7 +54,6 @@ class RepoData {
                                 } else {
                                     self.getCommits(userInfo: userInfo, repo: repo!, end: false)
                                 }
-
                             }
                         } else {
                             self.delegate?.responseError(message: "Invalid username or repository.")
@@ -78,7 +77,6 @@ class RepoData {
             } else {
                 do {
                     if data != nil {
-                        
                         let jsonResult = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.mutableContainers)
                         let commits = jsonResult as? NSArray
                         for i in commits! {

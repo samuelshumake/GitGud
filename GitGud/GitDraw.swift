@@ -15,45 +15,22 @@ class GitDraw: UIView {
     var circleColor: UIColor = UIColor.blue
     var outlineColor: UIColor = UIColor.black
     
-    @IBInspectable var startColor: UIColor = .blue
-    @IBInspectable var endColor: UIColor = .blue
-    
     var repoInfo: Dictionary<String, Array<Commit>> = [:]
     
     override func draw(_ rect: CGRect) {
-        let context = UIGraphicsGetCurrentContext()!
-        let colors = [startColor.cgColor, endColor.cgColor]
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let colorLocations: [CGFloat] = [0.0, 1.0]
-        let gradient = CGGradient(colorsSpace: colorSpace,
-                                       colors: colors as CFArray,
-                                    locations: colorLocations)!
-        let startPoint = CGPoint.zero
-        let endPoint = CGPoint(x: 0, y: bounds.height)
-        context.drawLinearGradient(gradient,
-                            start: startPoint,
-                              end: endPoint,
-                          options: [])
-        
-        var x = bounds.width / 2
-        var y = bounds.height - 60
+        let x = bounds.width / 2
+        var y = bounds.height - 40
         
         for branch in repoInfo {
-//            let p = CGPoint(x: x, y: y)
-//            drawCommit(center: p)
-            
-            // DRAWING THE 3 BRANCHES
-            print("\n\n")
+            print("\n\n\n\n\n\n")
             for commit in branch.value {
-                
+                print(commit)
                 let p = CGPoint(x: x, y: y)
                 drawCommit(center: p)
                 y -= 100
-                print(y)
                 // CYCLES THROUGH THE COMMITS
             }
         }
-    
     }
     
     func drawCommit(center: CGPoint) {
@@ -69,3 +46,4 @@ class GitDraw: UIView {
         path.fill()
     }
 }
+
