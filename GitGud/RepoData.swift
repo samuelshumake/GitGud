@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RepoDataProtocol {
-    func repoResponse(data: Dictionary<String, Array<Commit>>)
+    func repoResponse(data: Array<Dictionary<String, Array<Commit>>>)
     func responseError(message: String)
 }
 
@@ -28,8 +28,9 @@ class RepoData {
     private let urlPathBase = "https://api.github.com/repos/"
     private var dataTask: URLSessionDataTask? = nil
     var delegate: RepoDataProtocol? = nil
-    var RepoCommits: [String: [Commit]] = [:]
-//    var RepoCommits: Array<Dictionary<String, Array<Commit>>> = []
+//    var RepoCommits: [String: [Commit]] = [:]
+    var RepoCommits: Array<Dictionary<String, Array<Commit>>> = []
+    let emptyCommit = Commit(repo: "", message: "", date: "", author: "", email: "", sha: "", pSha: "")
 
     init() {}
     
@@ -49,11 +50,12 @@ class RepoData {
                         if branches != nil {
                             for (i, element) in branches!.enumerated() {
                                 let repo = element["name"]! as? String
-                                self.RepoCommits[repo!] = []
+//                                self.RepoCommits[repo!] = []
+                                self.RepoCommits.append([repo!:[self.emptyCommit]])
                                 if (i == branches!.count - 1) {
-                                    self.getCommits(userInfo: userInfo, repo: repo!, end: true)
+                                    self.getCommits(userInfo: userInfo, repo: repo!, end: true, repoInd: i)
                                 } else {
-                                    self.getCommits(userInfo: userInfo, repo: repo!, end: false)
+                                    self.getCommits(userInfo: userInfo, repo: repo!, end: false, repoInd: i)
                                 }
                             }
                         } else {
@@ -68,7 +70,7 @@ class RepoData {
         }
         repoTask.resume()
     }
-    func getCommits(userInfo: String, repo: String, end: Bool) {
+    func getCommits(userInfo: String, repo: String, end: Bool, repoInd: Int) {
         var urlPath = self.urlPathBase
         urlPath = urlPath + userInfo + "/commits?sha=" + repo
         let url:NSURL? = NSURL(string: urlPath)
@@ -108,7 +110,8 @@ class RepoData {
                             
                             // Create commit struct and append to RepoCommits
                             let commitStruct = Commit(repo: repo, message: message!, date: date!, author: name!, email: email!, sha: sha!, pSha: pSha)
-                            self.RepoCommits[repo]!.append(commitStruct)
+//                            self.RepoCommits[repo]!.append(commitStruct)
+                            self.RepoCommits[repoInd][repo]!.append(commitStruct)
                         }
                         if (end) {
                             self.delegate?.repoResponse(data: self.RepoCommits)

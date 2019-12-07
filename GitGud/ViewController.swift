@@ -17,7 +17,8 @@ class ViewController: UIViewController, RepoDataProtocol {
     @IBOutlet weak var gitImage: UIImageView!
     
     var dataSession = RepoData()
-    var repoInfo: [String: [Commit]] = [:]
+//    var repoInfo: [String: [Commit]] = [:]
+    var repoInfo: Array<Dictionary<String, Array<Commit>>> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +39,13 @@ class ViewController: UIViewController, RepoDataProtocol {
     
     
     // MARK: Reponse Handlers
-    func repoResponse(data: Dictionary<String, Array<Commit>>) {
+    func repoResponse(data: Array<Dictionary<String, Array<Commit>>>) {
         repoInfo = data
+        repoInfo.reverse()
+        for i in repoInfo {
+            print(i)
+            print("\n\n")
+        }
         nextScreen(self)
         DispatchQueue.main.async() {
             self.errorLabel.text = ""

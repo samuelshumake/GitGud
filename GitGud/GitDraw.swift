@@ -15,20 +15,21 @@ class GitDraw: UIView {
     var circleColor: UIColor = UIColor.blue
     var outlineColor: UIColor = UIColor.black
     
-    var repoInfo: [String: [Commit]] = [:]
+//    var repoInfo: [String: [Commit]] = [:]
+    var repoInfo: Array<Dictionary<String, Array<Commit>>> = []
     
     override func draw(_ rect: CGRect) {
         let x = bounds.width / 2
         var y = bounds.height - 40
         
-        for branch in repoInfo {
-            for commit in branch.value {
-                let p = CGPoint(x: x, y: y)
-                drawCommit(center: p)
-                y -= 100
-                // CYCLES THROUGH THE COMMITS
-            }
-        }
+//        for branch in repoInfo {
+//            for commit in branch.value {
+//                let p = CGPoint(x: x, y: y)
+//                drawCommit(center: p)
+//                y -= 100
+//                // CYCLES THROUGH THE COMMITS
+//            }
+//        }
     }
     
     func drawCommit(center: CGPoint) {
