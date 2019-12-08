@@ -23,4 +23,4 @@ class CommitCellViewController: UIViewController, UINavigationControllerDelegate
         }
 
 
-    }
+}

@@ -9,19 +9,21 @@
 import UIKit
 
 class RepoDataTableViewController: UITableViewController {
-
+    
+    @IBOutlet weak var navigationBar: UINavigationItem!
+    @IBOutlet weak var branchButton: UIBarButtonItem!
+    
     var repoInfo: [String: [Commit]] = [:]
+    var repoBranches: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        for i in repoInfo {
+            self.repoBranches.append(i.key)
+        }
     }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -37,8 +39,9 @@ class RepoDataTableViewController: UITableViewController {
         let cellIdentifier = "CommitCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CustomRepoTableViewCell
         
-        print(repoInfo["dev"]![indexPath.row].message)
+//        print(repoInfo["dev"]![indexPath.row].message)
         cell.messageLabel.text = repoInfo["dev"]![indexPath.row].message
+        cell.commitNumber.text = "C\(indexPath[1] + 1)"
 
         return cell
     }
@@ -95,8 +98,16 @@ class RepoDataTableViewController: UITableViewController {
                     contentViewController!.cellName = name
                 }
             }
+        } else if segue.identifier == "PresentModally" {
+            
+            let contentViewController = segue.destination as? ModalBranchTableViewController
+            
+            if (contentViewController != nil) {
+                contentViewController!.repoInfo = repoInfo
+            }
         }
     }
 
 
 }
+
