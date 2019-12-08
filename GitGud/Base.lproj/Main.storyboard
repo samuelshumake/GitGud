@@ -94,60 +94,12 @@
                         <outlet property="gitImage" destination="DIg-fI-GDG" id="7J5-Zg-K9V"/>
                         <outlet property="repoEntry" destination="Pub-Zq-ieb" id="XeE-0G-P8Z"/>
                         <outlet property="usernameEntry" destination="kgL-ao-5W0" id="AZR-Fc-gax"/>
-                        <segue destination="WIw-5J-h1N" kind="show" identifier="" id="H88-2Q-5Nc"/>
                         <segue destination="rhU-h2-cX9" kind="show" identifier="GitDetail" id="3rE-qJ-mOs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1828" y="119"/>
-        </scene>
-        <!--Git Visualizer View Controller-->
-        <scene sceneID="S0X-nS-bWE">
-            <objects>
-                <viewController id="WIw-5J-h1N" customClass="GitVisualizerViewController" customModule="GitGud" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LMx-kh-VmJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" contentInsetAdjustmentBehavior="never" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5H-Bg-7jy">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <view contentMode="bottom" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SzR-oD-cXb" customClass="GitDraw" customModule="GitGud" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="txF-Vx-8qI"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="YW4-uZ-hWu"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                        <color key="value" red="0.49847125894963629" green="1" blue="0.82384419650398488" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="wxD-s3-6n7"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Imq-2A-caI"/>
-                    <connections>
-                        <outlet property="gitDraw" destination="SzR-oD-cXb" id="d0g-92-bXN"/>
-                        <outlet property="gitScroll" destination="Y5H-Bg-7jy" id="KmR-Er-9EX"/>
-                        <outlet property="pinchRecognizer" destination="VpH-Xw-oI9" id="Kcf-87-4cs"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tZr-Py-d5u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <pinchGestureRecognizer id="VpH-Xw-oI9">
-                    <connections>
-                        <action selector="pinchZoom:" destination="WIw-5J-h1N" id="tew-gw-LAM"/>
-                    </connections>
-                </pinchGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="2742" y="-333"/>
         </scene>
         <!--Repo Data Table View Controller-->
         <scene sceneID="hCT-fP-0vB">
@@ -158,27 +110,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommitCell" rowHeight="200" id="mQR-bt-GI0" customClass="CustomRepoTableViewCell" customModule="GitGud" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="200"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommitCell" rowHeight="165" id="mQR-bt-GI0" customClass="CustomRepoTableViewCell" customModule="GitGud" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="165"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mQR-bt-GI0" id="BJK-RL-e5A">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="165"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zan-aZ-cWG">
-                                            <rect key="frame" x="20" y="11" width="223" height="54"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="56"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zan-aZ-cWG">
+                                            <rect key="frame" x="123" y="11" width="251" height="143"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="zan-aZ-cWG" firstAttribute="leading" secondItem="BJK-RL-e5A" secondAttribute="leadingMargin" constant="103" id="8d4-Wc-IJZ"/>
+                                        <constraint firstItem="zan-aZ-cWG" firstAttribute="bottom" secondItem="BJK-RL-e5A" secondAttribute="bottomMargin" id="GaG-Or-txz"/>
+                                        <constraint firstItem="zan-aZ-cWG" firstAttribute="top" secondItem="BJK-RL-e5A" secondAttribute="topMargin" id="bSd-zS-ASy"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="zan-aZ-cWG" secondAttribute="trailing" constant="20" id="xJz-Kc-AWb"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="messageLabel" destination="zan-aZ-cWG" id="uZD-fh-iCr"/>
+                                    <segue destination="1kt-Fr-aZH" kind="show" identifier="CellDetail" id="Tp3-cP-LCQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="rhU-h2-cX9" id="rhS-De-dne"/>
                             <outlet property="delegate" destination="rhU-h2-cX9" id="4a9-pC-IGX"/>
@@ -188,7 +147,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKo-jC-Ek6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2740.579710144928" y="389.73214285714283"/>
+            <point key="canvasLocation" x="2653.6231884057975" y="118.52678571428571"/>
+        </scene>
+        <!--Commit Cell View Controller-->
+        <scene sceneID="jSX-B4-8tW">
+            <objects>
+                <viewController id="1kt-Fr-aZH" customClass="CommitCellViewController" customModule="GitGud" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OpK-li-TXG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="F4j-Xv-FjE"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6px-B6-vFm">
+                        <barButtonItem key="backBarButtonItem" title="Table View" id="CPX-dN-2Rl"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b7Y-9O-Oh4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3470" y="119"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wCC-Ls-rC7">
