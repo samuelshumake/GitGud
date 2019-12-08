@@ -29,7 +29,6 @@ class RepoData {
     private var dataTask: URLSessionDataTask? = nil
     var delegate: RepoDataProtocol? = nil
     var RepoCommits: [String: [Commit]] = [:]
-    var storedShas: [String] = []
 //    var RepoCommits: Array<Dictionary<String, Array<Commit>>> = []
 
     init() {}
@@ -112,7 +111,6 @@ class RepoData {
                             
                             // Create commit struct and append to RepoCommits
                             let commitStruct = Commit(repo: repo, message: message!, date: date!, author: name!, email: email!, sha: sha!, pSha: pSha)
-                            self.storedShas.append(sha!)
                             self.RepoCommits[repo]!.insert(commitStruct, at: 0)
                         }
                         if (end) {

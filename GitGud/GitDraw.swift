@@ -12,32 +12,51 @@ import UIKit
 class GitDraw: UIView {
     
     var repoInfo: [String: [Commit]] = [:]
-//    var storedCommits: Array<String> = []
-//    var storedPShas : Array<String> = []
+    var storedCommits: Array<String> = []
+    var repoArray: [Dictionary<String, Array<Commit>>] = []
+    
     
     override func draw(_ rect: CGRect) {
+//        print(repoInfo["dev"]!.last!.date)
+        
+//        for i in repoInfo {
+//            var itemCount = i.value.count
+//            if repoArray.isEmpty {
+//                print(i.value)
+//            } else {
+////                for j in repoArray {
+////                    print(j)
+////                }
+//            }
+//            
+//        }
+        
+        
+        
+        
+        
+        
         var x = bounds.width / 2
         var y = bounds.height - 200
-//        for branch in repoInfo {
-//            if branch.key == "master" {
-//                for commit in branch.value {
-//                    storedCommits.append(commit.message)
-//                    let p = CGPoint(x: x, y: y)
-//                    let btn = PushButton(frame: CGRect(x: x - 25, y: y, width: 50, height: 50))
-//                    self.addSubview(btn)
-//
-//
-//                    y -= 100
-//                }
-//            }
-//        }
         for branch in repoInfo {
             for commit in branch.value {
-                let p = CGPoint(x: x, y: y)
-                let btn = PushButton(frame: CGRect(x: x - 25, y: y, width: 50, height: 50))
-                self.addSubview(btn)
+//                print("\(branch.key): \(storedCommits.contains(commit.sha))  - \(commit.message)")
+                if storedCommits.contains(commit.sha) {
+//                    print("don't draw")
+                } else {
+//                    print("draw something")
+                    let p = CGPoint(x: x, y: y)
+                    let btn = PushButton(frame: CGRect(x: x - 25, y: y, width: 50, height: 50))
+                    self.addSubview(btn)
+                }
+                storedCommits.append(commit.sha)
+                
+                
                 y -= 100
             }
+//            print(branch.key)
+            y = bounds.height - 200
+            x += 100
         }
     }
 }

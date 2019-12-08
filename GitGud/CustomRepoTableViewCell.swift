@@ -1,0 +1,25 @@
+//
+//  CustomRepoTableViewCell.swift
+//  GitGud
+//
+//  Created by Samuel Shumake on 12/7/19.
+//  Copyright © 2019 Samuel Shumake. All rights reserved.
+//
+
+import UIKit
+
+class CustomRepoTableViewCell: UITableViewCell {
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
+}

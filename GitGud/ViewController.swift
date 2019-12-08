@@ -40,13 +40,6 @@ class ViewController: UIViewController, RepoDataProtocol {
     // MARK: Reponse Handlers
     func repoResponse(data: Dictionary<String, Array<Commit>>) {
         repoInfo = data
-        
-        for i in repoInfo {
-            for j in i.value {
-                print(j.message)
-            }
-            print("\n\n\n\n\n\n")
-        }
         nextScreen(self)
         DispatchQueue.main.async() {
             self.errorLabel.text = ""
@@ -65,7 +58,7 @@ class ViewController: UIViewController, RepoDataProtocol {
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GitDetail" {
-            let contentViewController = segue.destination as? GitVisualizerViewController
+            let contentViewController = segue.destination as? RepoDataTableViewController
             contentViewController!.repoInfo = self.repoInfo
         }
     }

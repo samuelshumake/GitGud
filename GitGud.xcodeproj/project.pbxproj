@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		125710B1239AD481002A16A9 /* InitialPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125710B0239AD481002A16A9 /* InitialPageView.swift */; };
 		125710B3239AE4C5002A16A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 125710B2239AE4C5002A16A9 /* Images.xcassets */; };
+		1281BD21239C763E00E84EF8 /* RepoDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1281BD20239C763E00E84EF8 /* RepoDataTableViewController.swift */; };
+		1281BD23239C783E00E84EF8 /* CustomRepoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1281BD22239C783E00E84EF8 /* CustomRepoTableViewCell.swift */; };
 		12BEF520237620F100C30D53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BEF51F237620F100C30D53 /* AppDelegate.swift */; };
 		12BEF522237620F100C30D53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BEF521237620F100C30D53 /* SceneDelegate.swift */; };
 		12BEF524237620F100C30D53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BEF523237620F100C30D53 /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		125710B0239AD481002A16A9 /* InitialPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPageView.swift; sourceTree = "<group>"; };
 		125710B2239AE4C5002A16A9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1281BD20239C763E00E84EF8 /* RepoDataTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDataTableViewController.swift; sourceTree = "<group>"; };
+		1281BD22239C783E00E84EF8 /* CustomRepoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRepoTableViewCell.swift; sourceTree = "<group>"; };
 		12BEF51C237620F100C30D53 /* GitGud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitGud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12BEF51F237620F100C30D53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12BEF521237620F100C30D53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 				12DFBAB823983C3100001393 /* GitVisualizerViewController.swift */,
 				12BEF5362376217600C30D53 /* RepoData.swift */,
 				12BEF525237620F100C30D53 /* Main.storyboard */,
+				1281BD22239C783E00E84EF8 /* CustomRepoTableViewCell.swift */,
+				1281BD20239C763E00E84EF8 /* RepoDataTableViewController.swift */,
 				12C289F5237A68ED00796A40 /* GitDraw.swift */,
 				12BEF52D237620F200C30D53 /* LaunchScreen.storyboard */,
 				12BEF530237620F200C30D53 /* Info.plist */,
@@ -155,9 +161,11 @@
 			files = (
 				12BEF524237620F100C30D53 /* ViewController.swift in Sources */,
 				12DFBAB923983C3100001393 /* GitVisualizerViewController.swift in Sources */,
+				1281BD21239C763E00E84EF8 /* RepoDataTableViewController.swift in Sources */,
 				125710B1239AD481002A16A9 /* InitialPageView.swift in Sources */,
 				12BEF5372376217600C30D53 /* RepoData.swift in Sources */,
 				12BEF520237620F100C30D53 /* AppDelegate.swift in Sources */,
+				1281BD23239C783E00E84EF8 /* CustomRepoTableViewCell.swift in Sources */,
 				12C289F6237A68ED00796A40 /* GitDraw.swift in Sources */,
 				12BEF522237620F100C30D53 /* SceneDelegate.swift in Sources */,
 				12BEF52A237620F100C30D53 /* GitGud.xcdatamodeld in Sources */,

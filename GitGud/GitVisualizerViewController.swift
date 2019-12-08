@@ -29,10 +29,10 @@ class GitVisualizerViewController: UIViewController {
     }
     
     @IBAction func pinchZoom(_ sender: UIPinchGestureRecognizer) {
-//        if pinchRecognizer.state == .began || pinchRecognizer.state == .changed {
-//            pinchRecognizer.view?.transform = (pinchRecognizer.view?.transform.scaledBy(x: pinchRecognizer.scale, y: pinchRecognizer.scale))!
-//           pinchRecognizer.scale = 1.0
-//        }
+        if pinchRecognizer.state == .began || pinchRecognizer.state == .changed {
+            pinchRecognizer.view?.transform = (pinchRecognizer.view?.transform.scaledBy(x: pinchRecognizer.scale, y: pinchRecognizer.scale))!
+           pinchRecognizer.scale = 1.0
+        }
         
     }
 }
