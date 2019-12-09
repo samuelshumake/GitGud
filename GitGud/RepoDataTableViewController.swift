@@ -10,18 +10,10 @@ import UIKit
 
 class RepoDataTableViewController: UITableViewController {
     
-    @IBOutlet weak var navigationBar: UINavigationItem!
-    @IBOutlet weak var branchButton: UIBarButtonItem!
-    
-    var repoInfo: [String: [Commit]] = [:]
-    var repoBranches: [String] = [String]()
+    var repoInfo: [Commit] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        for i in repoInfo {
-            self.repoBranches.append(i.key)
-        }
     }
     
     // MARK: - Table view data source
@@ -31,7 +23,7 @@ class RepoDataTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repoInfo["dev"]!.count
+        return self.repoInfo.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,47 +31,11 @@ class RepoDataTableViewController: UITableViewController {
         let cellIdentifier = "CommitCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CustomRepoTableViewCell
         
-//        print(repoInfo["dev"]![indexPath.row].message)
-        cell.messageLabel.text = repoInfo["dev"]![indexPath.row].message
+        cell.messageLabel.text = self.repoInfo[indexPath.row].message
         cell.commitNumber.text = "C\(indexPath[1] + 1)"
 
         return cell
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     // MARK: - Navigation
      
@@ -93,17 +49,24 @@ class RepoDataTableViewController: UITableViewController {
 
             if let selectedCell = sender as? CustomRepoTableViewCell {
                 let indexPath = tableView.indexPath(for: selectedCell)!
-                let name = repoInfo["dev"]![indexPath.row].message
+                let message = self.repoInfo[indexPath.row].message
+                let num = "C\(indexPath.row + 1)"
+                let date = self.repoInfo[indexPath.row].date
+                let author = self.repoInfo[indexPath.row].author
+                let email = self.repoInfo[indexPath.row].email
+                let sha = self.repoInfo[indexPath.row].sha
+                let pSha = self.repoInfo[indexPath.row].pSha
+                
                 if (contentViewController != nil) {
-                    contentViewController!.cellName = name
+                    contentViewController!.commitMessageText = message
+                    contentViewController!.commitNumText = num
+                    contentViewController!.commitDateText = date
+                    contentViewController!.commitAuthorText = author
+                    contentViewController!.commitAuthorEmailText = email
+                    contentViewController!.commitShaText = sha
+                    contentViewController!.commitPShaText = pSha
+                    
                 }
-            }
-        } else if segue.identifier == "PresentModally" {
-            
-            let contentViewController = segue.destination as? ModalBranchTableViewController
-            
-            if (contentViewController != nil) {
-                contentViewController!.repoInfo = repoInfo
             }
         }
     }

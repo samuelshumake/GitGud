@@ -45,7 +45,5 @@ class EntryButton: UIButton {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.cgPath
         self.layer.mask = shapeLayer
-
-        
     }
 }

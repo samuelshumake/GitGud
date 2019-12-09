@@ -12,10 +12,6 @@ class CustomRepoTableViewCell: UITableViewCell {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var commitNumber: UILabel!
     
-    @IBOutlet weak var repoName: UILabel!
-    @IBOutlet weak var authorName: UILabel!
-    @IBOutlet weak var updatedLast: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,5 +22,5 @@ class CustomRepoTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }
